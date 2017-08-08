@@ -1,6 +1,7 @@
 body{
   text-align: center;
   background-color: #f9a36a;
+  margin-bottom: 50px;
 }
 
 #burger_icon{
@@ -16,10 +17,36 @@ button{
   color:white;
 }
 
-#eat_button{
+.eat_button{
   background-color: #f0493e;
+  display: inline-block;
+  margin: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 #add_burger{
   background-color: #75af88;
+  width: 100%;
+}
+
+p{
+  font-size: 20px;
+}
+hr{
+  border-color: #011330;
+  height: 1px;
+}
+#non-devoured, #devoured{
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: #e58648;
+  padding: 10px;
+}
+#burger_input{
+  width:100%;
+  text-align: center;
+}
+.fresh_burger_list{
+  margin: 10px;
 }
