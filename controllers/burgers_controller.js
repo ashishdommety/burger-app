@@ -16,7 +16,6 @@ router.get("/", function(req, res) {
   });
 });
 
-// QUESTION: Not sure if this is right?
 router.post("/", function(req, res) {
   burger.create([
     req.body.name
@@ -26,9 +25,7 @@ router.post("/", function(req, res) {
 });
 
 router.put("/:id", function(req, res) {
-
   var boolCheck = (req.body.devoured === "true");
-
   burger.update(boolCheck, req.params.id, function() {
     res.redirect("/");
   });
