@@ -1,4 +1,6 @@
-const orm = require("../config/orm.js");
+const path = require("path");
+
+const orm = require(path.join(__dirname, "..", "config", "orm.js"));
 
 var burger = {
   all: function(cb){

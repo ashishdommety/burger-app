@@ -1,7 +1,10 @@
 const express = require("express");
-const burger = require("../models/burger.js");
+const app = express();
+const path = require("path");
+const body = require("body-parser")
+const burger = require(path.join(__dirname, "..", "models", "burger.js"));
 
-var router = express.Router();
+const router = express.Router();
 
 router.get("/", function(req, res) {
   burger.all(function(data) {
