@@ -1,0 +1,25 @@
+body{
+  text-align: center;
+  background-color: #f9a36a;
+}
+
+#burger_icon{
+  margin-top: 25px;
+  width:15%;
+  height:15%;
+}
+
+button{
+  border: none;
+  padding:10px;
+  border-radius: 10px;
+  color:white;
+}
+
+#eat_button{
+  background-color: #f0493e;
+}
+
+#add_burger{
+  background-color: #75af88;
+}

@@ -1,46 +1,49 @@
-<h1>Burger App!</h1>
+<div class="row">
 
-<h2>Burgers that are not devoured!</h2>
+  <div class="col-md-6">
+    <h2>Burgers that are not devoured!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
+    <div>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <p>
+            {{this.burger_name}}
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="true">
-          <button type="submit">Eat it!</button>
-        </form>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="true">
+              <button type="submit" id="eat_button">Eat it!</button>
+            </form>
+          </p>
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h2>Burgers that are devoured!</h2>
 
-<h2>Burgers that are devoured!</h2>
+    <div>
+      {{#each burgers}}
+        {{#if this.devoured}}
+          <p>
+            {{this.burger_name}}
 
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
+            <form action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="false">
+            </form>
+          </p>
+        {{/if}}
+      {{/each}}
+    </div>
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="false">
-        </form>
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
-
+  </div>
+</div>
 <h2>Add a Burger</h2>
 <form class="create-update-form" action="/" method="POST">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-    {{!-- <input type="radio" name="devoured" value="0" checked><br> --}}
+    <input type="text" id="ca" name="name">{{!-- <input type="radio" name="devoured" value="0" checked><br> --}}
   </div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit" id="add_burger">Add Burger</button>
 </form>
