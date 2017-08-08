@@ -6,7 +6,7 @@ const burger = require(path.join(__dirname, "..", "models", "burger.js"));
 
 const router = express.Router();
 
-router.get(path.join(__dirname, "/"), function(req, res) {
+router.get("/", function(req, res) {
   burger.all(function(data) {
     var hbsObject = {
       burgers: data
