@@ -16,22 +16,17 @@ router.get("/", function(req, res) {
 // QUESTION: Not sure if this is right?
 router.post("/", function(req, res) {
   burger.create([
-    "burger_name", "devoured"
-  ], [
-    req.body.name, req.body.devoured
+    req.body.name
   ], function(){
     res.redirect("/");
   });
 });
 
 router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  var boolCheck = (req.body.devoured === "true");
 
-  burger.update({
-    devoured: req.body.devoured
-  }, condition, function() {
+  burger.update(boolCheck, req.params.id, function() {
     res.redirect("/");
   });
 });

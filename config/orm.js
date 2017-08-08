@@ -43,19 +43,12 @@ var orm = {
       cb(result);
     });
   },
-  insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
+  insertOne: function(vals, cb) {
 
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, ?)";
 
-    console.log(queryString);
-
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, [vals,false], function(err, result) {
+      console.log(queryString);
       if (err) {
         throw err;
       }
@@ -63,16 +56,19 @@ var orm = {
       cb(result);
     });
   },
-  updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
-
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
-
-    console.log(queryString);
-    connection.query(queryString, function(err, result) {
+  updateOne: function(vals, burgersId, cb) {
+    // var queryString = "UPDATE " + table;
+    //
+    // queryString += " SET ";
+    // queryString += objToSql(objColVals);
+    // queryString += " WHERE ";
+    // queryString += condition;
+    var queryString = "UPDATE burgers SET ? WHERE ?";
+    // console.log(queryString);
+    connection.query(queryString,[
+      {devoured: vals},
+      {id: burgersId}
+    ],function(err, result) {
       if (err) {
         throw err;
       }
