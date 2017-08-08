@@ -2,7 +2,6 @@ const express = require("express");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const path = require("path");
-const app = express();
 
 const router = require(path.join(__dirname, "controllers", "burgers_controller.js"));
 
