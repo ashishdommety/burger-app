@@ -5,7 +5,7 @@ const path = require("path");
 
 const router = require(path.join(__dirname, "controllers", "burgers_controller.js"));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
