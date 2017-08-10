@@ -17,8 +17,12 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
+  var burgerName = req.body.name;
+  if(burgerName === ""){
+    burgerName = "Empty Burger";
+  }
   burger.create([
-    req.body.name
+    burgerName
   ], function(){
     res.redirect("/");
   });
